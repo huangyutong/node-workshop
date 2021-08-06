@@ -1,4 +1,4 @@
-let doWork = function (job, timer, cb) {
+let doWork = function (job, timer, ok) {
     return new Promise(function (resolve, reject) {
 
         setTimeout(() => {
@@ -16,13 +16,10 @@ let doWork = function (job, timer, cb) {
 let dt = new Date();
 console.log(`開始工作 at ${dt.toISOString()}`)
 
-let job1 = doWork("刷牙", 3000, false);
-// let job2 = doWork("吃早餐", 5000, true);
-// let job3 = doWork("做作業", 8000, true);
+let job1 = doWork("刷牙", 3000, true);
 console.log(job1);
-// console.log(job2);
-// console.log(job3);
 
+// .then()規範 第一個是成功，第二個是失敗
 job1.then(
     function (resolve) {
         // 負責接受 resolve (成功)
@@ -33,7 +30,7 @@ job1.then(
         console.log("第 2 個函式被呼叫了", reject);
     }
 
-    
+
 );
 // job2.then(
 //     function (resolve) {
