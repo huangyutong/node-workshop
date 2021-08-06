@@ -23,7 +23,6 @@ console.log(job1);
 // console.log(job2);
 // console.log(job3);
 
-
 job1.then(
     function (resolve) {
         // 負責接受 resolve (成功)
