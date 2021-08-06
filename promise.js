@@ -32,7 +32,6 @@ job1.then(
         // 負責接受 reject (失敗)
         console.log("第 2 個函式被呼叫了", reject);
     }
-
 );
 // job2.then(
 //     function (resolve) {
