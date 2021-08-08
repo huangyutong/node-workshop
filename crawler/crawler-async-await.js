@@ -68,6 +68,7 @@ async function homework() {
     try {
         let stockCode = await promiseStock();
         let response = await axiosStock(stockCode.trim());
+        //stockCode.trim() ->空行過濾
         console.log(response.data.title);
     } catch (error) {
         console.log("error", error);
