@@ -17,12 +17,12 @@ new Promise((resolve, reject) => {
             params: {
                 response: JSON,
                 date: moment().format("YYYYMMDD"),
-                stockNo: stockNo,
+                stockNo: stockNo.trim(),
             },
         });
     })
     .then((response) => {
-        console.log(response.data);
+        console.log(response.data.title);
     })
     .catch((error) => {
         console.log(error);
