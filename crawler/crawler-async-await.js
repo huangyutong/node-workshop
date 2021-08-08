@@ -42,7 +42,7 @@ const moment = require("moment")
 const fs = require("fs")
 
 // console.log(moment().format = ("YYYYMMDD"))
-let promiseStock = function () {
+function promiseStock() {
     return new Promise((resolve, reject) => {
         fs.readFile("stock.txt", "utf8", (err, stockCode) => {
             if (err) {
@@ -53,8 +53,8 @@ let promiseStock = function () {
         });
 
     })
-}
-let axiosStock = function (stockNo) {
+};
+function axiosStock(stockNo) {
     return axios.get("https://www.twse.com.tw/exchangeReport/STOCK_DAY", {
         params: {
             response: "json",
@@ -68,11 +68,10 @@ async function homework() {
     try {
         let stockCode = await promiseStock();
         let response = await axiosStock(stockCode.trim());
-        //stockCode.trim() ->空行過濾
+        //stockCode.trim() ->移除前後空白字元,包括換行
         console.log(response.data.title);
     } catch (error) {
-        console.log("error", error);
+        console.error("error", error);
     }
-
 }
 homework();
