@@ -22,7 +22,7 @@ new Promise((resolve, reject) => {
         });
     })
     .then((response) => {
-        console.log(response.data.title);
+        console.log(response.data);
     })
     .catch((error) => {
         console.log(error);
