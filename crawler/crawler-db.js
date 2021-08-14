@@ -1,6 +1,10 @@
 const axios = require('axios')
 const moment = require('moment')
 const fs = require('fs')
+
+//const {readFile}=require("fs")
+//readFle("stock.txt","utf8",callback)
+
 const mysql = require('mysql')
 require('dotenv').config()
 
@@ -60,7 +64,7 @@ function axiosStock(stockNo) {
 
 //寫入資料庫,要傳入parsedData
 function insertPromise(itemData) {
-    return new Promise((parsedData) => {
+    return new Promise((resolve, reject) => {
         connection.query(
             'INSERT IGNORE INTO stock_price (stock_id, date, volume, amount, open_price, high_price, low_price, close_price, delta_price, transactions) VALUES ?',
             [itemData],
